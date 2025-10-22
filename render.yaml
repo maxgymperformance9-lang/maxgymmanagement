@@ -1,14 +1,20 @@
 services:
   - type: web
     name: maxgymmanagement
-    runtime: php
-    buildCommand: composer install --no-dev --optimize-autoloader
-    startCommand: php spark serve --host 0.0.0.0 --port $PORT
+    runtime: docker
+    dockerfilePath: ./Dockerfile
     envVars:
-      - key: APP_ENV
-        value: production
-      - key: DATABASE_URL
-        sync: false
       - key: CI_ENVIRONMENT
         value: production
-    plan: free
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_HOST
+        value: your-db-host
+      - key: DATABASE_NAME
+        value: your-db-name
+      - key: DATABASE_USER
+        value: your-db-user
+      - key: DATABASE_PASSWORD
+        value: your-db-password
+      - key: APP_KEY
+        value: generate-random-key-here

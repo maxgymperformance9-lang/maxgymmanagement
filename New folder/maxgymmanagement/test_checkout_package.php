@@ -1,0 +1,19 @@
+<?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'http://localhost:8080/admin/kasir/checkout');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode([
+    'cart' => [
+        ['id_package' => 1, 'nama_produk' => 'Basic Membership', 'harga' => 500000, 'quantity' => 1]
+    ],
+    'member_id' => '1', // Assuming member ID 1 exists
+    'payment_method' => 'cash',
+    'payment_amount' => 500000,
+    'ppn_percentage' => 0,
+    'discount_percentage' => 0
+]));
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
+echo $response;
