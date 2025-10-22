@@ -23,8 +23,7 @@ class App extends BaseConfig
      */
     // public string $baseURL = 'http://localhost/maxgymmanagement/';
     // Using php spark serve
-    // public string $baseURL = 'https://d75f45adb162.ngrok-free.app/';  // Ngrok URL for online access
-    public string $baseURL = 'https://your-app-name.onrender.com/';  // Render URL for production
+    public string $baseURL = 'https://d75f45adb162.ngrok-free.app/';  // Ngrok URL for online access
 
 
     /**
